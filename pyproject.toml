@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "percvre"
 version = "0.1.0"
-description = "Athena's CV"
+description = "A personal CV app written in Python with Django."
 authors = ["Athena Wolfskämpf <athena@wolfskaempf.de>"]
 readme = "README.md"
 
