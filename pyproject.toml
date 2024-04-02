@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "percvre"
+version = "0.1.0"
+description = "Athena's CV"
+authors = ["Athena Wolfskämpf <athena@wolfskaempf.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.3"
+uvicorn = "^0.29.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
