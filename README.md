@@ -38,7 +38,7 @@ If you have any feedback, do not hesitate to contact me or open an issue.
 2. Create a One-Click-Postgres app and remember the data you chose (app name, default database, user and password).
 3. Create a new app named anything you like in the Caprover interface. This tutorial will go with `percvre` for the app name.
 4. Inside the `HTTP Settings` section of the new app enable HTTPS and select `Force HTTPS by redirecting all HTTP traffic to HTTPS`
-5. Inside the `App Configs` section of the new app configure the app specific environment variables described in [src/example.env](./src/example.env)
+5. Inside the `App Configs` section of the new app configure the app specific environment variables described in [example.env](./example.env)
 - Ensure you have added all environment variables that start with `PERCVRE` (do not copy the `POSTGRES` variables into the `App Configs` section of the `percvre` app)
 - Ensure the database connection information matches the database you created earlier
     - The `PERCVRE_POSTGRES_HOST` can be found in the app overview of the database you created earlier
