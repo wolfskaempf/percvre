@@ -35,6 +35,7 @@ SECRET_KEY = env.str(
 DEBUG = env.bool("PERCVRE_DEBUG", False)
 
 ALLOWED_HOSTS = env.list("PERCVRE_ALLOWED_HOSTS", [])
+CSRF_TRUSTED_ORIGINS = env.list("PERCVRE_CSRF_TRUSTED_ORIGINS", [])
 
 
 # Application definition
