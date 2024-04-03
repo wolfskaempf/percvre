@@ -101,6 +101,13 @@ class Reference(models.Model):
     name = models.CharField(max_length=128)
     link = models.URLField()
 
+    class Meta:
+        verbose_name = _("Reference")
+        verbose_name_plural = _("References")
+
+    def __str__(self: Self) -> str:
+        return self.name
+
 
 class Trivia(models.Model):
     """Represent a piece of trivia."""
