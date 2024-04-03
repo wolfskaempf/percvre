@@ -37,7 +37,7 @@
                                 <h3 class="mb-0">{{ exp.title }}</h3>
                                 <p class="mb-0">{{ exp.organisation }}</p>
                                 <p class="mt-0">{{ exp.start_description }} — {{ exp.end_description }}</p>
-                                <p>{{ exp.description }}</p>
+                                <p>{{ exp.description|safe }}</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -49,7 +49,7 @@
                             <h3 class="mb-0">{{ edu.title }}</h3>
                             <p>{{ edu.start_description }} — {{ edu.end_description }} @ {{ edu.institute }}</p>
 
-                            <p>{{ edu.description }}</p>
+                            <p>{{ edu.description|safe }}</p>
                         </div>
                     {% endfor %}
 
