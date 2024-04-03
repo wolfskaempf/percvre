@@ -11,6 +11,7 @@ django = "^5.0.3"
 whitenoise = "^6.6.0"
 gunicorn = "^21.2.0"
 environs = "^11.0.0"
+psycopg = "^3.1.18"
 
 
 [build-system]
