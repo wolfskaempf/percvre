@@ -1,0 +1,11 @@
+<div>
+    <p class="mb-0">{{ personal_data.name }}, born {{ personal_data.date_of_birth }}
+        in {{ personal_data.place_of_birth }}</p>
+    <p class="mt-0 mb-0">{{ personal_data.address_street }}</p>
+    <p class="mt-0 mb-0">{{ personal_data.address_zip }} {{ personal_data.address_city }}</p>
+    <p class="mt-0 mb-0">tel.:
+        <a href="tel:{{ personal_data.telephone }}">{{ personal_data.telephone }}</a></p>
+    <p class="mt-0 mb-0">E-Mail:
+        <a href="mailto:{{ personal_data.email }}">{{ personal_data.email }}</a></p>
+    <p class="mt-0 mb-0">Nationality: {{ personal_data.nationality }}</p>
+</div>

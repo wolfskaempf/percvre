@@ -1,0 +1,35 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'vitae/favicons/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'vitae/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'vitae/favicons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'vitae/site.webmanifest' %}">
+
+    <meta name="description" content="{{ public_personal_data.name }} CV">
+    <meta property="og:title" content="{{ public_personal_data.name }}">
+    <meta property="og:description" content="{{ public_personal_data.name }} CV">
+    <meta property="og:site_name" content="{{ public_personal_data.name }}">
+    <meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cv.wolfskaempf.de">
+    <meta property="og:image" content="https://cv.wolfskaempf.de/static/vitae/images/profilepicture-lg.jpeg">
+
+    <link rel="stylesheet" href="{% static 'vitae/css/tailwind.css' %}">
+    <link rel="stylesheet" href="{% static 'vitae/css/pico.conditional.pink.min.css' %}">
+    <script src="{% static 'vitae/js/htmx.min.js' %}"></script>
+    <title>{{ public_personal_data.name }}</title>
+</head>
+<body
+        hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+>
+{% block content %}
+{% endblock %}
+</body>
+</html>

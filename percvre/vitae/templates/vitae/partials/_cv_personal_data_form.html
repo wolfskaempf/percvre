@@ -1,0 +1,28 @@
+<div id="personal-data-form" class="pico">
+    <form
+            action="{% url 'vitae:request_personal_data' %}"
+            method="post"
+            hx-post="{% url 'vitae:request_personal_data' %}"
+    >
+        <p>To access this section, please enter your company's name without legal form.</p>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <fieldset>
+            <label>Company Name
+                <input
+                        name="token"
+                        placeholder="Jane Doe Ltd."
+                        value="{{ request.POST.token }}"
+                        hx-target="#personal-data-form"
+                        hx-swap="outerHTML"
+                />
+            </label>
+            <input type="submit" value="Submit"/>
+        </fieldset>
+    </form>
+</div>

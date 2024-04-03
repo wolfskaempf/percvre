@@ -1,0 +1,89 @@
+{% extends "vitae/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    <div id="app">
+        {% get_current_language as LANGUAGE_CODE %}
+        <div lang="{{ LANGUAGE_CODE }}">
+            <div class="xl:px-60 p-8">
+                <div class="flex items-center justify-center flex-wrap gap-x-20 gap-y-12">
+                    <img class="rounded-full lg:w-1/4 md:w-1/3 sm:w-1/2 w-5/6"
+                         src="{% static 'vitae/images/profilepicture-sm.jpeg' %}"
+                         alt="Profile picture of {{ public_personal_data.name }}">
+                    <div class="relative text-center">
+                        <h1 class="text-5xl ">{{ public_personal_data.name }}</h1>
+                        <p>{{ public_personal_data.position }}</p>
+                        <p>
+                            {% for ref in references %}
+                                <a href="{{ ref.link }}" target="_blank">{{ ref.name }}</a>
+                                {% if not forloop.last %}|{% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xl:px-64 lg:px-32 md:px-16 p-8">
+                <div class="prose md:prose-xl">
+                    <h2>At a glance</h2>
+                    {{ public_personal_data.at_a_glance|safe }}
+
+                    <h2>Experience</h2>
+                    {% for exp in work_exps %}
+                        <div class="relative">
+                    <span class="{% if exp.highlight %}block absolute -inset-1 -skew-y-3 bg-green-200{% endif %}"
+                          aria-hidden="true"></span>
+                            <div class="{% if exp.highlight %}relative{% endif %}">
+                                <h3 class="mb-0">{{ exp.title }}</h3>
+                                <p class="mb-0">{{ exp.organisation }}</p>
+                                <p class="mt-0">{{ exp.start_description }} — {{ exp.end_description }}</p>
+                                <p>{{ exp.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                    <h2>Education</h2>
+                    {% for edu in education %}
+                        <div>
+                            <h3 class="mb-0">{{ edu.title }}</h3>
+                            <p>{{ edu.start_description }} — {{ edu.end_description }} @ {{ edu.institute }}</p>
+
+                            <p>{{ edu.description }}</p>
+                        </div>
+                    {% endfor %}
+
+                    <h2>Volunteering Experience</h2>
+                    {% for exp in volunteer_exps %}
+                        <div class="relative">
+                    <span class="{% if exp.highlight %}block absolute -inset-1 -skew-y-3 bg-green-200{% endif %}"
+                          aria-hidden="true"></span>
+                            <div class="{% if exp.highlight %}relative{% endif %}">
+                                <h3 class="mb-0">{{ exp.title }}</h3>
+                                <p class="mb-0">{{ exp.organisation }}</p>
+                                <p class="mt-0">{{ exp.start_description }} — {{ exp.end_description }}</p>
+                                <p>{{ exp.description|safe }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div>
+                        <h2>Trivia</h2>
+                        <ul>
+                            {% for trv in trivia %}
+                                <li>{{ trv.description|safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Personal data</h2>
+                        {% include "vitae/partials/_cv_personal_data_form.html" %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
